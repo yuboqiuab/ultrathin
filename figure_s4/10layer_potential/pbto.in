@@ -1,0 +1,6 @@
+&INPUTPP
+  outdir = './',
+  prefix='hfo',
+  filplot = 'espot.dat',
+  plot_num = 11,
+/

@@ -1,0 +1,17 @@
+#!/bin/bash 
+#PBS -N 00_00
+#PBS -q background
+#PBS -l select=1:ncpus=192:mpiprocs=192
+#PBS -l walltime=04:00:00
+#PBS -j oe
+#PBS -A ONRDC07673031
+
+module load espresso/7.3.1
+
+INPUT=bto.in
+EXE=pw.x
+
+cd $PBS_O_WORKDIR
+
+aprun -n 192 ${EXE} -in $PWD/${INPUT} > bto.out 
+

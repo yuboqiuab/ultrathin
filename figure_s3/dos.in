@@ -1,0 +1,6 @@
+&PROJWFC
+outdir='./'
+prefix='hfo2'
+Emin=-10,Emax=20,DeltaE=0.01
+ngauss=0,degauss=0.01
+/

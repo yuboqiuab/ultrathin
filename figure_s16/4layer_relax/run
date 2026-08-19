@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#SBATCH -A ONRDC07673031
+#SBATCH -J slab2
+#SBATCH -q standard
+#SBATCH --nodes=3
+#SBATCH --ntasks-per-node=120
+#SBATCH --time=24:00:00
+#SBATCH --mail-type=END
+
+
+cd $SLURM_SUBMIT_DIR
+np=$SLURM_NTASKS
+
+
+source $MODULESHOME/init/bash
+module load espresso/6.7
+
+export ESPRESSO_NPROCS=$np
+pw.x -npool 10 -ndiag 36 < bto.in > bto.out

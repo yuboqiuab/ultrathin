@@ -1,0 +1,14 @@
+#PBS -A ONRDC07673031
+#PBS -q background
+#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=128:mpiprocs=128
+#PBS -j oe
+#PBS -V
+#PBS -N 00_00
+
+cd $PBS_O_WORKDIR
+
+
+module load Espresso/6.7
+export ESPRESSO_NPROCS=120
+pw.x -npool 10 -ndiag 12 <bto.in> bto.out
